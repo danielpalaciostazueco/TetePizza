@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "TetePizza.Business/1.0.0": {
+        "dependencies": {
+          "TetePizza.Data": "1.0.0",
+          "TetePizza.Model": "1.0.0"
+        },
+        "runtime": {
+          "TetePizza.Business.dll": {}
+        }
+      },
+      "TetePizza.Data/1.0.0": {
+        "dependencies": {
+          "TetePizza.Model": "1.0.0"
+        },
+        "runtime": {
+          "TetePizza.Data.dll": {}
+        }
+      },
+      "TetePizza.Model/1.0.0": {
+        "runtime": {
+          "TetePizza.Model.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TetePizza.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TetePizza.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TetePizza.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
