@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TetePizzaCapa\\Api\\TetePizza.Api.csproj": {}
+    "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Api\\TetePizza.Api.csproj": {}
   },
   "projects": {
-    "D:\\TetePizzaCapa\\Api\\TetePizza.Api.csproj": {
+    "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Api\\TetePizza.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TetePizzaCapa\\Api\\TetePizza.Api.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Api\\TetePizza.Api.csproj",
         "projectName": "TetePizza.Api",
-        "projectPath": "D:\\TetePizzaCapa\\Api\\TetePizza.Api.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Api\\TetePizza.Api.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "D:\\TetePizzaCapa\\Api\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\TetePizzaCapa\\Business\\TetePizza.Business.csproj": {
-                "projectPath": "D:\\TetePizzaCapa\\Business\\TetePizza.Business.csproj"
+              "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Business\\TetePizza.Business.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Business\\TetePizza.Business.csproj"
               },
-              "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj": {
-                "projectPath": "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj"
+              "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "D:\\TetePizzaCapa\\Business\\TetePizza.Business.csproj": {
+    "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Business\\TetePizza.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TetePizzaCapa\\Business\\TetePizza.Business.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Business\\TetePizza.Business.csproj",
         "projectName": "TetePizza.Business",
-        "projectPath": "D:\\TetePizzaCapa\\Business\\TetePizza.Business.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Business\\TetePizza.Business.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "D:\\TetePizzaCapa\\Business\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -112,11 +112,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\TetePizzaCapa\\Data\\TetePizza.Data.csproj": {
-                "projectPath": "D:\\TetePizzaCapa\\Data\\TetePizza.Data.csproj"
+              "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Data\\TetePizza.Data.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Data\\TetePizza.Data.csproj"
               },
-              "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj": {
-                "projectPath": "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj"
+              "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj"
               }
             }
           }
@@ -150,14 +150,14 @@
         }
       }
     },
-    "D:\\TetePizzaCapa\\Data\\TetePizza.Data.csproj": {
+    "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Data\\TetePizza.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TetePizzaCapa\\Data\\TetePizza.Data.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Data\\TetePizza.Data.csproj",
         "projectName": "TetePizza.Data",
-        "projectPath": "D:\\TetePizzaCapa\\Data\\TetePizza.Data.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Data\\TetePizza.Data.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "D:\\TetePizzaCapa\\Data\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -178,8 +178,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj": {
-                "projectPath": "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj"
+              "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj"
               }
             }
           }
@@ -193,6 +193,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -213,14 +219,14 @@
         }
       }
     },
-    "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj": {
+    "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj",
         "projectName": "TetePizza.Model",
-        "projectPath": "D:\\TetePizzaCapa\\Model\\TetePizza.Model.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\TetePizza.Model.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "D:\\TetePizzaCapa\\Model\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\TetePizza\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

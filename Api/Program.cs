@@ -15,6 +15,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<PedidosController>();
 builder.Services.AddScoped <PedidosService>();
 builder.Services.AddSingleton<IPedidosRepository, PedidosRepository>();
+var connectionString = builder.Configuration.GetConnectionString("ServerDB");
+
+builder.Services.AddScoped<IPizzaRepository, PizzaSqlRepository>(serviceProvider => 
+new PizzaSqlRepository(connectionString));
 
 builder.Services.AddScoped<PizzaController>();
 builder.Services.AddScoped< PizzaService>();
