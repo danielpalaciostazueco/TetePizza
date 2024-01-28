@@ -6,7 +6,7 @@ namespace TetePizza.Data
     public class IngredientesRepository : IIngredientesRepository
     {
         private List<Ingredientes> Ingredientes { get; set; }
-        private  int nextId = 1;
+        private int nextId = 1;
 
         public IngredientesRepository()
         {
@@ -21,7 +21,7 @@ namespace TetePizza.Data
                     Calories = "Cada Tomate contiene dos 22 calorías.",
                     ExpiryDate = "20/02/2024.",
                     Origin = "El tomate proviene de Andalucía",
-                    Price = 0.22,
+                    Price = (decimal)0.22,
                     NutritionalInfo = "Consumir tomates es beneficioso para la salud debido a la amplia variedad de nutrientes y compuestos bioactivos que ofrecen.",
                     IsGlutenFree = true
                 },
@@ -34,7 +34,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 200 calorías por cada 100 gramos de prosciutto.",
                     ExpiryDate = "2024-02-22",
                     Origin = "Italia",
-                    Price = 1.3,
+                    Price = (decimal)1.3,
                     NutritionalInfo = "Rico en grasas saludables y proteínas.",
                     IsGlutenFree = true
                 },
@@ -47,7 +47,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 110 calorías por cada 28 gramos de queso Parmesano.",
                     ExpiryDate = "2024-02-25",
                     Origin = "Italia",
-                    Price = 2.5,
+                    Price = (decimal)2.5,
                     NutritionalInfo = "Alto contenido de calcio y proteínas.",
                     IsGlutenFree = true
                 },
@@ -60,7 +60,7 @@ namespace TetePizza.Data
                     Calories = "No tiene calorías.",
                     ExpiryDate = "2024-03-01",
                     Origin = "Región Mediterránea",
-                    Price = 3.0,
+                    Price = (decimal)3.0,
                     NutritionalInfo = "Rico en grasas saludables.",
                     IsGlutenFree = true
                 },
@@ -73,7 +73,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 7 calorías por cada taza de espinacas.",
                     ExpiryDate = "2024-02-18",
                     Origin = "Local",
-                    Price = 0.3,
+                    Price = (decimal)0.3,
                     NutritionalInfo = "Rica en vitaminas y minerales, baja en calorías.",
                     IsGlutenFree = true
                 },
@@ -86,7 +86,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 11 calorías por cada 100 gramos de champiñones.",
                     ExpiryDate = "2024-02-15",
                     Origin = "Cultivados",
-                    Price = 0.25,
+                    Price = (decimal)0.25,
                     NutritionalInfo = "Buena fuente de proteínas, vitaminas y minerales.",
                     IsGlutenFree = true
                 },
@@ -99,7 +99,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 250 calorías por cada 100 gramos de pepperoni.",
                     ExpiryDate = "2024-02-22",
                     Origin = "Estados Unidos",
-                    Price = 1.5,
+                    Price = (decimal)1.5,
                     NutritionalInfo = "Rico en grasas y proteínas, pero consumir con moderación debido a su contenido calórico.",
                     IsGlutenFree = true
                 },
@@ -112,7 +112,7 @@ namespace TetePizza.Data
                     Calories = "Aporta insignificantes calorías.",
                     ExpiryDate = "Indeterminada",
                     Origin = "Mediterráneo",
-                    Price = 0.1,
+                    Price = (decimal)0.1,
                     NutritionalInfo = "Aporta sabor y aroma a la pizza, sin calorías significativas.",
                     IsGlutenFree = true
                 },
@@ -125,7 +125,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 5 calorías por cada aceituna.",
                     ExpiryDate = "20/02/2024",
                     Origin = "Mediterráneo",
-                    Price = 0.3,
+                    Price = (decimal)0.3,
                     NutritionalInfo = "Ricas en grasas saludables y antioxidantes.",
                     IsGlutenFree = true
                 },
@@ -138,7 +138,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 80 calorías por cada 28 gramos de queso mozzarella.",
                     ExpiryDate = "2024-02-25",
                     Origin = "Italia",
-                    Price = 2.0,
+                    Price = (decimal)2.0,
                     NutritionalInfo = "Bajo contenido de grasa y alto contenido de proteínas y calcio.",
                     IsGlutenFree = true
                 },
@@ -151,7 +151,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 110 calorías por cada 28 gramos de queso cheddar.",
                     ExpiryDate = "2024-02-25",
                     Origin = "Inglaterra",
-                    Price = 1.5,
+                    Price = (decimal)1.5,
                     NutritionalInfo = "Sabor fuerte y color naranja distintivo.",
                     IsGlutenFree = true
                 },
@@ -164,7 +164,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 100 calorías por cada 28 gramos de queso gorgonzola.",
                     ExpiryDate = "2024-02-25",
                     Origin = "Italia",
-                    Price = 2.2,
+                    Price = (decimal)2.2,
                     NutritionalInfo = "Queso azul con sabor fuerte.",
                     IsGlutenFree = true
                 },
@@ -177,7 +177,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 80 calorías por cada 28 gramos de queso feta.",
                     ExpiryDate = "2024-02-25",
                     Origin = "Grecia",
-                    Price = 2.0,
+                    Price = (decimal)2.0,
                     NutritionalInfo = "Queso blanco y desmenuzable con sabor salado.",
                     IsGlutenFree = true
                 },
@@ -190,7 +190,7 @@ namespace TetePizza.Data
                     Calories = "Aproximadamente 98 calorías por cada 28 gramos de queso provolone.",
                     ExpiryDate = "2024-02-25",
                     Origin = "Italia",
-                    Price = 2.0,
+                    Price = (decimal)2.0,
                     NutritionalInfo = "Queso italiano semiduro con sabor suave.",
                     IsGlutenFree = true
                 }

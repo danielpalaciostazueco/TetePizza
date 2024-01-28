@@ -49,3 +49,20 @@ C:\Users\S2-PC00\Desktop\Nueva carpeta\TetePizza\Business\obj\Debug\net7.0\TeteP
 C:\Users\S2-PC00\Desktop\Nueva carpeta\TetePizza\Business\obj\Debug\net7.0\refint\TetePizza.Business.dll
 C:\Users\S2-PC00\Desktop\Nueva carpeta\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.pdb
 C:\Users\S2-PC00\Desktop\Nueva carpeta\TetePizza\Business\obj\Debug\net7.0\ref\TetePizza.Business.dll
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Business.deps.json
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Business.dll
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Business.pdb
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Data.dll
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Model.dll
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Model.pdb
+C:\Users\Usuario\TetePizza\Business\bin\Debug\net7.0\TetePizza.Data.pdb
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.csproj.AssemblyReference.cache
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.AssemblyInfoInputs.cache
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.AssemblyInfo.cs
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.csproj.CopyComplete
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.dll
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\refint\TetePizza.Business.dll
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\TetePizza.Business.pdb
+C:\Users\Usuario\TetePizza\Business\obj\Debug\net7.0\ref\TetePizza.Business.dll

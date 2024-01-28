@@ -13,16 +13,16 @@ builder.Services.AddSwaggerGen();
 
 // Registra los servicios antes de llamar a builder.Build()
 builder.Services.AddScoped<PedidosController>();
-builder.Services.AddScoped <PedidosService>();
+builder.Services.AddScoped<PedidosService>();
 builder.Services.AddSingleton<IPedidosRepository, PedidosRepository>();
 var connectionString = builder.Configuration.GetConnectionString("ServerDB");
 
-builder.Services.AddScoped<IPizzaRepository, PizzaSqlRepository>(serviceProvider => 
-new PizzaSqlRepository(connectionString));
+
 
 builder.Services.AddScoped<PizzaController>();
-builder.Services.AddScoped< PizzaService>();
-builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
+builder.Services.AddScoped<PizzaService>();
+builder.Services.AddScoped<IPizzaRepository, PizzaSqlRepository>(serviceProvider =>
+new PizzaSqlRepository(connectionString));
 
 builder.Services.AddScoped<IngredientesController>();
 builder.Services.AddScoped<IngredientesService>();
