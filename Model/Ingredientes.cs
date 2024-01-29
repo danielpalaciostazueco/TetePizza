@@ -4,6 +4,7 @@ public class Ingredientes
 {
     public int IdIngredient { get; set; }
     public string NameIngredient { get; set; }
+    public int PizzaId { get; set; }
     public string Type { get; set; }
     public int Quantity { get; set; }
     public string Calories { get; set; }

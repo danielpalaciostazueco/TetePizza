@@ -16,40 +16,36 @@ namespace TetePizza.Data
         }
         public List<Pizza> GetAll()
         {
-            List<Pizza> pizzas = new List<Pizza>();
+            var pizzas = new List<Pizza>();
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    var sqlString = "SELECT IdPizza, NamePizza, Price FROM Pizzas";
-                    var command = new SqlCommand(sqlString, connection);
+                    // Consulta para obtener las pizzas
+                    var pizzaSql = "SELECT IdPizza, NamePizza, Price FROM Pizzas";
+                    var pizzaCommand = new SqlCommand(pizzaSql, connection);
 
-                    using (var reader = command.ExecuteReader())
+                    using (var pizzaReader = pizzaCommand.ExecuteReader())
                     {
-                        while (reader.Read())
+                        while (pizzaReader.Read())
                         {
                             var pizza = new Pizza
                             {
-                                Id = Convert.ToInt32(reader["IdPizza"]),
-                                Name = reader["NamePizza"].ToString(),
-                                Price = (decimal)reader["Price"],
-                                Ingredients = new List<Ingredientes>() // Inicializa la lista de ingredientes
+                                Id = Convert.ToInt32(pizzaReader["IdPizza"]),
+                                Name = pizzaReader["NamePizza"].ToString(),
+                                Price = (decimal)pizzaReader["Price"],
+                                Ingredients = new List<Ingredientes>()
                             };
 
-                            // Agrega la pizza a la lista de pizzas
                             pizzas.Add(pizza);
                         }
-
-                        // Cierra el DataReader de la primera consulta antes de continuar
-                        reader.Close();
                     }
 
-                    // Ahora, consulta los ingredientes para todas las pizzas
-                    var ingredientsSql = "SELECT p.IdPizza, i.IdIngredient, i.NameIngredient, i.Type, i.Quantity, i.Calories, i.ExpiryDate, i.Origin, i.Price, i.NutritionalInfo, i.IsGlutenFree " +
-                                         "FROM Pizzas p " +
-                                         "INNER JOIN Ingredientes i ON p.IdPizza = i.PizzaId " +
-                                         "ORDER BY p.IdPizza";
+                    // Consulta para obtener los ingredientes
+                    var ingredientsSql = "SELECT PizzaId, IdIngredient, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree " +
+                                         "FROM Ingredientes " +
+                                         "ORDER BY PizzaId, IdIngredient";
 
                     var ingredientsCommand = new SqlCommand(ingredientsSql, connection);
 
@@ -57,7 +53,7 @@ namespace TetePizza.Data
                     {
                         while (ingredientsReader.Read())
                         {
-                            var pizzaId = Convert.ToInt32(ingredientsReader["IdPizza"]);
+                            var pizzaId = Convert.ToInt32(ingredientsReader["PizzaId"]);
                             var pizza = pizzas.FirstOrDefault(p => p.Id == pizzaId);
 
                             if (pizza != null)
@@ -66,6 +62,7 @@ namespace TetePizza.Data
                                 {
                                     IdIngredient = Convert.ToInt32(ingredientsReader["IdIngredient"]),
                                     NameIngredient = ingredientsReader["NameIngredient"].ToString(),
+                                    PizzaId = (int)ingredientsReader["PizzaId"],
                                     Type = ingredientsReader["Type"].ToString(),
                                     Quantity = Convert.ToInt32(ingredientsReader["Quantity"]),
                                     Calories = ingredientsReader["Calories"].ToString(),
@@ -76,7 +73,6 @@ namespace TetePizza.Data
                                     IsGlutenFree = Convert.ToBoolean(ingredientsReader["IsGlutenFree"])
                                 };
 
-                                // Agrega el ingrediente a la lista de ingredientes de la pizza correspondiente
                                 pizza.Ingredients.Add(ingredient);
                             }
                         }
@@ -86,10 +82,12 @@ namespace TetePizza.Data
             catch (Exception ex)
             {
                 // Manejar la excepción o registrarla
-                throw;
+                throw new Exception("Error al obtener las pizzas e ingredientes: " + ex.Message, ex);
             }
+
             return pizzas;
         }
+
 
 
         public Pizza Get(int Id)
@@ -120,7 +118,7 @@ namespace TetePizza.Data
                     }
 
                     // Ahora, consulta los ingredientes para esta pizza
-                    var ingredientsSql = "SELECT IdIngredient, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree " +
+                    var ingredientsSql = "SELECT IdIngredient, ,PizzaId, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree " +
                                          "FROM Ingredientes " +
                                          "WHERE PizzaId = @PizzaId";
                     var ingredientsCommand = new SqlCommand(ingredientsSql, connection);
@@ -134,6 +132,7 @@ namespace TetePizza.Data
                             {
                                 IdIngredient = Convert.ToInt32(ingredientsReader["IdIngredient"]),
                                 NameIngredient = ingredientsReader["NameIngredient"].ToString(),
+                                PizzaId = (int)ingredientsReader["PizzaId"],
                                 Type = ingredientsReader["Type"].ToString(),
                                 Quantity = Convert.ToInt32(ingredientsReader["Quantity"]),
                                 Calories = ingredientsReader["Calories"].ToString(),
@@ -157,7 +156,6 @@ namespace TetePizza.Data
             }
             return pizza;
         }
-
         public void Add(Pizza pizza)
         {
             try
@@ -166,26 +164,31 @@ namespace TetePizza.Data
                 {
                     connection.Open();
 
-                    // Comienza una transacción para asegurarte de que ambas operaciones (pizza e ingredientes) se completen correctamente o ninguna.
                     using (var transaction = connection.BeginTransaction())
                     {
+                        // Generar un ID único para la pizza
+                        var maxIdSql = "SELECT MAX(IdPizza) FROM Pizzas";
+                        var maxIdCommand = new SqlCommand(maxIdSql, connection, transaction);
+                        var maxIdResult = maxIdCommand.ExecuteScalar();
+                        var pizzaId = (maxIdResult != DBNull.Value) ? Convert.ToInt32(maxIdResult) + 1 : 1;
+
                         // Inserta la pizza en la tabla "Pizzas"
-                        var insertPizzaSql = "INSERT INTO Pizzas (NamePizza, Price) VALUES (@NamePizza, @Price); SELECT SCOPE_IDENTITY()";
+                        var insertPizzaSql = "INSERT INTO Pizzas (IdPizza, NamePizza, Price) VALUES (@IdPizza, @NamePizza, @Price)";
                         var insertPizzaCommand = new SqlCommand(insertPizzaSql, connection, transaction);
+                        insertPizzaCommand.Parameters.AddWithValue("@IdPizza", pizzaId);
                         insertPizzaCommand.Parameters.AddWithValue("@NamePizza", pizza.Name);
                         insertPizzaCommand.Parameters.AddWithValue("@Price", pizza.Price);
+                        insertPizzaCommand.ExecuteNonQuery();
 
-                        // Obtiene el ID de la pizza recién insertada
-                        var pizzaId = Convert.ToInt32(insertPizzaCommand.ExecuteScalar());
-
-                        // Inserta los ingredientes en la tabla "Ingredientes" asociados a la pizza por su ID
+                        // Inserta los ingredientes en la tabla "Ingredientes"
                         foreach (var ingredient in pizza.Ingredients)
                         {
-                            var insertIngredientSql = "INSERT INTO Ingredientes (PizzaId, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree) " +
-                                                      "VALUES (@PizzaId, @NameIngredient, @Type, @Quantity, @Calories, @ExpiryDate, @Origin, @Price, @NutritionalInfo, @IsGlutenFree)";
+                            var insertIngredientSql = "INSERT INTO Ingredientes (PizzaId,IdIngredient, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree) " +
+                                                      "VALUES (@PizzaId,@IdIngredient, @NameIngredient, @Type, @Quantity, @Calories, @ExpiryDate, @Origin, @Price, @NutritionalInfo, @IsGlutenFree)";
                             var insertIngredientCommand = new SqlCommand(insertIngredientSql, connection, transaction);
                             insertIngredientCommand.Parameters.AddWithValue("@PizzaId", pizzaId);
                             insertIngredientCommand.Parameters.AddWithValue("@NameIngredient", ingredient.NameIngredient);
+                            insertIngredientCommand.Parameters.AddWithValue("@IdIngredient", ingredient.IdIngredient);
                             insertIngredientCommand.Parameters.AddWithValue("@Type", ingredient.Type);
                             insertIngredientCommand.Parameters.AddWithValue("@Quantity", ingredient.Quantity);
                             insertIngredientCommand.Parameters.AddWithValue("@Calories", ingredient.Calories);
@@ -205,17 +208,17 @@ namespace TetePizza.Data
             }
             catch (SqlException ex)
             {
-                // Maneja la excepción de SQL Server aquí, puedes registrarla o realizar acciones específicas si es necesario.
-                // Por ejemplo: LogError(ex);
-                throw;
+                // Maneja la excepción de SQL Server aquí
+                throw new Exception("Error de SQL Server: " + ex.Message, ex);
             }
             catch (Exception ex)
             {
-                // Maneja otras excepciones aquí, puedes registrarlas o realizar acciones específicas si es necesario.
-                // Por ejemplo: LogError(ex);
-                throw;
+                // Maneja otras excepciones aquí
+                throw new Exception("Error general: " + ex.Message, ex);
             }
         }
+
+
 
         public void Delete(int Id)
         {
