@@ -15,5 +15,8 @@ namespace TetePizza.Services
 
         public Ingredientes? Get(int id) => _ingredientesRepository.Get(id);
         public List<Ingredientes> GetAll() => _ingredientesRepository.GetAll();
+        public void Add(Ingredientes ingredientes) => _ingredientesRepository.Add(ingredientes);
+        public void Delete(int id) => _ingredientesRepository.Delete(id);
+        public void Update(Ingredientes ingredientes) => _ingredientesRepository.Update(ingredientes);
     }
 }

@@ -199,5 +199,27 @@ namespace TetePizza.Data
 
         public Ingredientes Get(int id) => Ingredientes.Find(i => i.IdIngredient == id);
         public List<Ingredientes> GetAll() => Ingredientes;
+         public void Add(Ingredientes ingredientes)
+        {
+            ingredientes.IdIngredient = nextId++;
+            Ingredientes.Add(ingredientes);
+        }
+
+        public void Delete(int IdIngredient)
+        {
+            var pizza = Get(IdIngredient);
+            if (pizza is null)
+                return;
+
+            Ingredientes.Remove(pizza);
+        }
+        public void Update(Ingredientes ingredientes)
+        {
+            var index = Ingredientes.FindIndex(i => i.IdIngredient == ingredientes.IdIngredient);
+            if (index == -1)
+                return;
+
+            Ingredientes[index] = ingredientes;
+        }
     }
 }

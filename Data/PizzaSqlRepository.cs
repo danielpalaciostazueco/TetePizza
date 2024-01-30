@@ -111,7 +111,7 @@ namespace TetePizza.Data
                                 Id = Convert.ToInt32(reader["IdPizza"]),
                                 Name = reader["NamePizza"].ToString(),
                                 Price = (decimal)reader["Price"],
-                                Ingredients = new List<Ingredientes>() // Inicializa la lista de ingredientes
+                                Ingredients = new List<Ingredientes>() 
                             };
                             reader.Close();
                         }
