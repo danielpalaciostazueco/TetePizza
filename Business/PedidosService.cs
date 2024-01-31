@@ -34,5 +34,20 @@ namespace TetePizza.Services
                 _pedidosRepository.Update(pedido);
             }
         }
+
+        public void Update(Pedidos pedido)
+        {
+            _pedidosRepository.Update(pedido);
+        }
+        
+        public void Delete(int id)
+        {
+            _pedidosRepository.Delete(id);
+        }
+
+        public List<Pedidos> GetAll()
+        {
+            return _pedidosRepository.GetAll();
+        }       
     }
 }

@@ -32,4 +32,17 @@ public class PedidosRepository : IPedidosRepository
 
         Pedidos[index] = pedido;
     }
+
+    public void Delete(int id)
+    {
+        var index = Pedidos.FindIndex(p => p.IdOrder == id);
+        if (index == -1)
+            return;
+
+        Pedidos.RemoveAt(index);
+    }
+
+    public List<Pedidos> GetAll() => Pedidos;
+
+    
 }

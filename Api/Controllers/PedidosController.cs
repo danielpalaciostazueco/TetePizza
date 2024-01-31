@@ -1,7 +1,7 @@
 using TetePizza.Model;
 using TetePizza.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace TetePizza.Controllers
 {
@@ -30,7 +30,7 @@ namespace TetePizza.Controllers
         [HttpPost]
         public IActionResult Create(Pedidos pedido)
         {
-            if (pedido.Pizzas != null && pedido.Pizzas.Any())
+            if (pedido.Pizzas != null && pedido.Pizzas.Count > 0)
             {
                 pedido.Price = pedido.Pizzas.Sum(p => p.Price);
             }
@@ -39,11 +39,40 @@ namespace TetePizza.Controllers
             return CreatedAtAction(nameof(Get), new { id = pedido.IdOrder }, pedido);
         }
 
-        [HttpPut("{id}/add-pizzas")]
-        public IActionResult AddPizzas(int id, List<Pizza> pizzas)
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, Pedidos pedido)
         {
-            _pedidosService.AddPizzas(id, pizzas);
+            if (id != pedido.IdOrder)
+                return BadRequest();
+
+            var existingPedido = _pedidosService.Get(id);
+            if (existingPedido == null)
+                return NotFound();
+
+            _pedidosService.Update(pedido);
+
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var pedido = _pedidosService.Get(id);
+
+            if (pedido == null)
+                return NotFound();
+
+            _pedidosService.Delete(id);
+
+            return NoContent();
+        }
+
+        [HttpGet]
+        public ActionResult<List<Pedidos>> GetAll()
+        {
+            var pedidos = _pedidosService.GetAll();
+            return Ok(pedidos);
+        }
+
     }
 }

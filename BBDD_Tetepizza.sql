@@ -33,6 +33,15 @@ CREATE TABLE Ingredientes (
     IsGlutenFree BIT
 );
 
+CREATE TABLE Pedidos
+(
+    IdOrder INT PRIMARY KEY IDENTITY(1,1),
+    Price DECIMAL NOT NULL,
+    UserId INT, 
+    FOREIGN KEY (UserId) REFERENCES Usuarios(IdUsuario)
+);
+
+
 -- Insertar ingredientes para la pizza "Classic Italian"
 -- Ingredientes para la pizza "Classic Italian"
 INSERT INTO Ingredientes (IdIngredient, PizzaId, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree)
