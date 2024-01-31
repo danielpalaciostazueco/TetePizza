@@ -2,8 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
-
-COPY Api/TetePizza.Api.csproj ./
+COPY ../*.sln .
+COPY ../Model/*.csproj Model/
+COPY ../Business/*.csproj Business/
+COPY ../Data/*.csproj Data/
+COPY Api/*.csproj Api/
 RUN dotnet restore
 
 
