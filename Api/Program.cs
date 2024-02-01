@@ -4,7 +4,7 @@ using TetePizza.Model;
 using TetePizza.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connectionString = builder.Configuration.GetConnectionString("ServerDB");
 // Agrega servicios al contenedor.
 builder.Services.AddControllers();
 // Obtén más información sobre cómo configurar Swagger/OpenAPI en https://aka.ms/aspnetcore/swashbuckle
@@ -14,10 +14,8 @@ builder.Services.AddSwaggerGen();
 // Registra los servicios antes de llamar a builder.Build()
 builder.Services.AddScoped<PedidosController>();
 builder.Services.AddScoped<PedidosService>();
-builder.Services.AddSingleton<IPedidosRepository, PedidosRepository>();
-var connectionString = builder.Configuration.GetConnectionString("ServerDB");
-
-
+builder.Services.AddScoped<IPedidosRepository, PedidosSqlRepository>(serviceProvider =>
+new PedidosSqlRepository(connectionString));
 
 builder.Services.AddScoped<PizzaController>();
 builder.Services.AddScoped<PizzaService>();
@@ -26,7 +24,8 @@ new PizzaSqlRepository(connectionString));
 
 builder.Services.AddScoped<IngredientesController>();
 builder.Services.AddScoped<IngredientesService>();
-builder.Services.AddSingleton<IIngredientesRepository, IngredientesRepository>();
+builder.Services.AddScoped<IIngredientesRepository, IngredientesSqlRepository>(serviceProvider =>
+new IngredientesSqlRepository(connectionString));
 
 var app = builder.Build();
 
