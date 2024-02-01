@@ -6,7 +6,7 @@ networks:
 services:
     db:
         #container_name: dbContainer
-        image: mcr.microsoft.com/mssql/server:2019-CU21-ubuntu-20.04
+        image: danielpalacios2003/tetepizza-db
         ports:
             - 8002:1433
         environment:

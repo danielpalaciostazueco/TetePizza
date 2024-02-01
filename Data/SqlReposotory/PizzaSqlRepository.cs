@@ -118,7 +118,7 @@ namespace TetePizza.Data
                     }
 
                     // Ahora, consulta los ingredientes para esta pizza
-                    var ingredientsSql = "SELECT IdIngredient, ,PizzaId, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree " +
+                    var ingredientsSql = "SELECT IdIngredient, PizzaId, NameIngredient, Type, Quantity, Calories, ExpiryDate, Origin, Price, NutritionalInfo, IsGlutenFree " +
                                          "FROM Ingredientes " +
                                          "WHERE PizzaId = @PizzaId";
                     var ingredientsCommand = new SqlCommand(ingredientsSql, connection);
