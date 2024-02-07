@@ -15,13 +15,13 @@ namespace TetePizza.Data
         public List<Pizza> GetAll()
         {
             return _context.Pizzas.ToList();
-            SaveChanges();
+          
         }
 
         public Pizza Get(int Id)
         {
             return _context.Pizzas.FirstOrDefault(pizza => pizza.Id == Id);
-            SaveChanges();
+           
         }
 
 

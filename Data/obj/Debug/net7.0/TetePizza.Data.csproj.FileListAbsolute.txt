@@ -90,3 +90,5 @@ C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Data\obj\Debug\net7.0\r
 C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Data\obj\Debug\net7.0\TetePizza.Data.pdb
 C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Data\obj\Debug\net7.0\TetePizza.Data.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Data\obj\Debug\net7.0\ref\TetePizza.Data.dll
+C:\Users\S2-PC00\TetePizza\Data\bin\Debug\net7.0\TetePizza.Data.runtimeconfig.json
+C:\Users\S2-PC00\TetePizza\Data\obj\Debug\net7.0\TetePizza.Data.genruntimeconfig.cache

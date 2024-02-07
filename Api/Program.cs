@@ -19,41 +19,30 @@ else
 var connectionString = builder.Configuration.GetConnectionString(keyString);
 
 builder.Services.AddControllers();
+
 // Obtén más información sobre cómo configurar Swagger/OpenAPI en https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//Pedidos
-builder.Services.AddScoped<PedidosController>();
-builder.Services.AddScoped<PedidosService>();
 builder.Services.AddDbContext<TetePizzaAppContext>(options =>
     options.UseSqlServer(connectionString));
+
+//Pedidos
+builder.Services.AddScoped<PedidosService>();
 builder.Services.AddScoped<IPedidosRepository, PedidosEfrRepository>();
 
-
-//Pizza
-builder.Services.AddScoped<PizzaController>();
-builder.Services.AddScoped<PizzaService>();
-builder.Services.AddDbContext<TetePizzaAppContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddScoped<IPizzaRepository, PizzaEfrRepository>();
-
 //Ingredientes
-builder.Services.AddScoped<IngredientesController>();
 builder.Services.AddScoped<IngredientesService>();
-builder.Services.AddDbContext<TetePizzaAppContext>(options =>
-    options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IIngredientesRepository, IngredientesEfrRepository>();
+//Pizza
+builder.Services.AddScoped<PizzaService>();
+builder.Services.AddScoped<IPizzaRepository, PizzaEfrRepository>();
 
 
 var app = builder.Build();
-
 app.UseSwagger();
 app.UseSwaggerUI();
-
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

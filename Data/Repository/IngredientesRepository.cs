@@ -1,4 +1,4 @@
-using TetePizza.Model;
+/*using TetePizza.Model;
 using System.Collections.Generic;
 
 namespace TetePizza.Data
@@ -222,4 +222,4 @@ namespace TetePizza.Data
             Ingredientes[index] = ingredientes;
         }
     }
-}
+}*/

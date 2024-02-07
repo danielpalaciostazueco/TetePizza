@@ -1,4 +1,4 @@
-﻿using TetePizza.Model;
+﻿/*using TetePizza.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -45,4 +45,4 @@ public class PedidosRepository : IPedidosRepository
     public List<Pedidos> GetAll() => Pedidos;
 
     
-}
+}*/

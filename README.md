@@ -11,3 +11,8 @@ Connect to database and run manually the script of init-db.sql
 
 ## Save database
 docker commit & docker push
+
+Migraciones: 
+dotnet ef migrations add InitialCreate -p ./Data/TetePizza.Data.csproj -s ./Api/TetePizza.Api.csproj
+dotnet ef database update  -p ./Data/TetePizza.Data.csproj -s ./Api/TetePizza.Api.csproj
+dotnet ef database drop  -p ./Data/TetePizza.Data.csproj -s ./Api/TetePizza.Api.csproj
