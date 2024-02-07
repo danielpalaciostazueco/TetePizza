@@ -211,3 +211,13 @@ C:\Users\S2-PC00\TetePizza\Api\obj\Debug\net7.0\refint\TetePizza.Api.dll
 C:\Users\S2-PC00\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.pdb
 C:\Users\S2-PC00\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.genruntimeconfig.cache
 C:\Users\S2-PC00\TetePizza\Api\obj\Debug\net7.0\ref\TetePizza.Api.dll
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.dll
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\refint\TetePizza.Api.dll
+C:\Users\Usuario\Desktop\Curso23-24-San-Valero\TetePizza\Api\obj\Debug\net7.0\TetePizza.Api.pdb

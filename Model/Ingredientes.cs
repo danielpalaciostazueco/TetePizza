@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 namespace TetePizza.Model;
 
 public class Ingredientes
 {
+    public Ingredientes() { }
+    [Key]
     public int IdIngredient { get; set; }
     public string NameIngredient { get; set; }
     public int PizzaId { get; set; }

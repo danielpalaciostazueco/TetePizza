@@ -26,7 +26,7 @@ CREATE TABLE Ingredientes (
     Type VARCHAR(255),
     Quantity INT,
     Calories VARCHAR(255),
-    ExpiryDate DATE,
+    ExpiryDate VARCHAR(255),
     Origin VARCHAR(255),
     Price DECIMAL(10, 2),
     NutritionalInfo VARCHAR(1000),
@@ -82,8 +82,6 @@ SELECT * FROM Ingredientes;
 
 -- Verificar si las pizzas se han insertado correctamente
 SELECT * FROM Pizzas;
--- Cambiar el tipo de dato de la columna ExpiryDate a VARCHAR(255)
-ALTER TABLE Ingredientes
-ALTER COLUMN ExpiryDate VARCHAR(255);
+
 
 
