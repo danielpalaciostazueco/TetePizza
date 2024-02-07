@@ -15,13 +15,11 @@ namespace TetePizza.Data
         public List<Ingredientes> GetAll()
         {
             return _context.Ingredientes.ToList();
-            SaveChanges();
         }
 
         public Ingredientes Get(int Id)
         {
             return _context.Ingredientes.FirstOrDefault(ingredientes => ingredientes.IdIngredient == Id);
-            SaveChanges();
         }
 
 

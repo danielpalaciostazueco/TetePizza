@@ -1,5 +1,7 @@
-using TetePizza.Model;
 using Microsoft.EntityFrameworkCore;
+using TetePizza.Model;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TetePizza.Data
 {
@@ -14,23 +16,22 @@ namespace TetePizza.Data
 
         public List<Pizza> GetAll()
         {
-            return _context.Pizzas.ToList();
           
+            return _context.Pizzas.Include(p => p.Ingredients).ToList();
         }
 
         public Pizza Get(int Id)
         {
-            return _context.Pizzas.FirstOrDefault(pizza => pizza.Id == Id);
-           
+            
+            return _context.Pizzas.Include(p => p.Ingredients)
+                                  .FirstOrDefault(pizza => pizza.Id == Id);
         }
-
 
         public void Add(Pizza pizza)
         {
             _context.Pizzas.Add(pizza);
-            SaveChanges();
+            _context.SaveChanges();
         }
-
 
         public void Delete(int id)
         {
@@ -38,20 +39,13 @@ namespace TetePizza.Data
             if (pizza != null)
             {
                 _context.Pizzas.Remove(pizza);
+                _context.SaveChanges();
             }
-            SaveChanges();
         }
 
         public void Update(Pizza pizza)
         {
             _context.Pizzas.Update(pizza);
-            SaveChanges();
-        }
-
-
-
-        public void SaveChanges()
-        {
             _context.SaveChanges();
         }
     }

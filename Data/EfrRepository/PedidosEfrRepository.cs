@@ -15,7 +15,6 @@ namespace TetePizza.Data
         public Pedidos Get(int Id)
         {
             return _context.Pedidos.FirstOrDefault(pedido => pedido.IdOrder == Id);
-            SaveChanges();
         }
 
         public void Add(Pedidos pedido)
