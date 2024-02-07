@@ -6,16 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var isRunning = Environment.GetEnvironmentVariable("DOCKER_CONTAINER");
-string keyString;
-if (isRunning == "true")
-{
-    keyString = "ServerDB_Container";
-}
-else
-{
-    keyString = "ServerDB";
-}
+var isRunningInDocker = Environment.GetEnvironmentVariable("DOCKER_CONTAINER") == "true";
+var keyString = isRunningInDocker ? "ServerDB_Docker" : "ServerDB_Local";
 var connectionString = builder.Configuration.GetConnectionString(keyString);
 
 builder.Services.AddControllers();
