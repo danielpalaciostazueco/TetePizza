@@ -33,7 +33,7 @@ namespace TetePizza.Data.Migrations
                     IdOrder = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Usuario = table.Column<int>(type: "int", nullable: true)
+                    Usuario = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,7 +42,8 @@ namespace TetePizza.Data.Migrations
                         name: "FK_Pedidos_Usuarios_Usuario",
                         column: x => x.Usuario,
                         principalTable: "Usuarios",
-                        principalColumn: "IdUser");
+                        principalColumn: "IdUser",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

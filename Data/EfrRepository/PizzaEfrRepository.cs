@@ -14,39 +14,82 @@ namespace TetePizza.Data
             _context = context;
         }
 
-        public List<Pizza> GetAll()
+        public List<PizzaDTO> GetAll()
         {
-          
-            return _context.Pizzas.Include(p => p.Ingredients).ToList();
+            var pizzas = _context.Pizzas.Include(p => p.Ingredients).ToList();
+            var PizzasDTO = pizzas.Select(p => new PizzaDTO
+            {
+                PizzaId = p.Id,
+                Nombre = p.Name,
+                Ingredientes = p.Ingredients.Select(i => new IngredientesDTO
+                {
+                    IngredienteId = i.IdIngredient,
+                    Nombre = i.NameIngredient,
+                }).ToList()
+            }).ToList();
+            return PizzasDTO;
         }
 
-        public Pizza Get(int Id)
+        public PizzaDTO Get(int Id)
         {
-            
-            return _context.Pizzas.Include(p => p.Ingredients)
-                                  .FirstOrDefault(pizza => pizza.Id == Id);
+            var pizzasDTO = _context.Pizzas
+                .Where(id => id.Id == Id)
+                .Select(p => new PizzaDTO
+                {
+                    PizzaId = p.Id,
+                    Nombre = p.Name,
+                    Ingredientes = p.Ingredients.Select(i => new IngredientesDTO
+                    {
+                        IngredienteId = i.IdIngredient,
+                        Nombre = i.NameIngredient,
+                    }).ToList()
+                })
+                .FirstOrDefault();
+            return pizzasDTO;
         }
 
         public void Add(Pizza pizza)
         {
-            _context.Pizzas.Add(pizza);
-            _context.SaveChanges();
+            var exist = _context.Pizzas.Any(p => p.Id == pizza.Id);
+            if (exist == null)
+            {
+                _context.Pizzas.Add(pizza);
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                _context.Pizzas.Update(pizza);
+                _context.SaveChanges();
+            }
+
         }
 
         public void Delete(int id)
         {
-            var pizza = _context.Pizzas.FirstOrDefault(pizza => pizza.Id == id);
-            if (pizza != null)
+            var exist = _context.Pizzas.Any(pizza => pizza.Id == id);
+            if (exist != null)
             {
-                _context.Pizzas.Remove(pizza);
+                var pizzas = _context.Pizzas.FirstOrDefault(pizza => pizza.Id == id);
+                _context.Pizzas.Remove(pizzas);
                 _context.SaveChanges();
             }
         }
 
         public void Update(Pizza pizza)
         {
-            _context.Pizzas.Update(pizza);
-            _context.SaveChanges();
+            var exist = _context.Pizzas.Any(p => p.Id == pizza.Id);
+            if (exist != null)
+            {
+                _context.Pizzas.Update(pizza);
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                _context.Pizzas.Add(pizza);
+                _context.SaveChanges();
+            }
         }
     }
 }

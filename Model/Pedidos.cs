@@ -10,5 +10,5 @@ public class Pedidos
     public List<Pizza> Pizzas { get; set; } = new List<Pizza>();
     public decimal Price { get; set; }
     [ForeignKey("Usuario")]
-    public Usuario? User { get; set; }
+    public Usuario User { get; set; }
 }

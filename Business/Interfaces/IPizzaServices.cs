@@ -6,9 +6,9 @@ namespace TetePizza.Services
     public interface IPizzaService
     {
         void Add(Pizza pizza);
-        Pizza Get(int id);
+        PizzaDTO Get(int id);
         void Delete(int id);
-        List<Pizza> GetAll();
+        List<PizzaDTO> GetAll();
         void Update(Pizza pizza);
     }
 }

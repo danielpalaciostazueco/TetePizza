@@ -338,7 +338,7 @@ namespace TetePizza.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("Usuario")
+                    b.Property<int>("Usuario")
                         .HasColumnType("int");
 
                     b.HasKey("IdOrder");
@@ -431,7 +431,9 @@ namespace TetePizza.Data.Migrations
                 {
                     b.HasOne("TetePizza.Model.Usuario", "User")
                         .WithMany()
-                        .HasForeignKey("Usuario");
+                        .HasForeignKey("Usuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

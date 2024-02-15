@@ -5,16 +5,16 @@ namespace TetePizza.Services
 {
     public class PizzaService : IPizzaService
     {
-        private readonly IPizzaRepository _pizzaRepository; 
+        private readonly IPizzaRepository _pizzaRepository;
 
         public PizzaService(IPizzaRepository pizzaRepository)
         {
             _pizzaRepository = pizzaRepository;
         }
 
-        public List<Pizza> GetAll() => _pizzaRepository.GetAll();
+        public List<PizzaDTO> GetAll() => _pizzaRepository.GetAll();
 
-        public Pizza? Get(int id) => _pizzaRepository.Get(id);
+        public PizzaDTO Get(int id) => _pizzaRepository.Get(id);
 
         public void Add(Pizza pizza) => _pizzaRepository.Add(pizza);
 

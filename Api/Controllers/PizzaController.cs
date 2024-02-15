@@ -18,11 +18,11 @@ namespace TetePizza.Controllers
 
         // GET all action
         [HttpGet]
-        public ActionResult<List<Pizza>> GetAll() => _pizzaService.GetAll();
+        public ActionResult<List<PizzaDTO>> GetAll() => _pizzaService.GetAll();
 
         // GET by Id action
         [HttpGet("{id}")]
-        public ActionResult<Pizza> Get(int id)
+        public ActionResult<PizzaDTO> Get(int id)
         {
             var pizza = _pizzaService.Get(id);
 

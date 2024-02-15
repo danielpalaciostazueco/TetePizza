@@ -17,7 +17,7 @@ namespace TetePizza.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Pedidos> Get(int id)
+        public ActionResult<PedidosDTO> Get(int id)
         {
             var pedido = _pedidosService.Get(id);
 
@@ -68,7 +68,7 @@ namespace TetePizza.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Pedidos>> GetAll()
+        public ActionResult<List<PedidosDTO>> GetAll()
         {
             var pedidos = _pedidosService.GetAll();
             return Ok(pedidos);

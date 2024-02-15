@@ -18,36 +18,24 @@ namespace TetePizza.Services
             _pedidosRepository.Add(pedido);
         }
 
-        public Pedidos Get(int id)
+        public PedidosDTO Get(int id)
         {
             return _pedidosRepository.Get(id);
-        }
-
-        public void AddPizzas(int pedidoId, List<Pizza> pizzas)
-        {
-            var pedido = _pedidosRepository.Get(pedidoId);
-
-            if (pedido != null)
-            {
-                pedido.Pizzas.AddRange(pizzas);
-                pedido.Price = pedido.Pizzas.Sum(p => p.Price);
-                _pedidosRepository.Update(pedido);
-            }
         }
 
         public void Update(Pedidos pedido)
         {
             _pedidosRepository.Update(pedido);
         }
-        
+
         public void Delete(int id)
         {
             _pedidosRepository.Delete(id);
         }
 
-        public List<Pedidos> GetAll()
+        public List<PedidosDTO> GetAll()
         {
             return _pedidosRepository.GetAll();
-        }       
+        }
     }
 }

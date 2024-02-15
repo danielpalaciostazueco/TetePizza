@@ -12,12 +12,13 @@ var connectionString = builder.Configuration.GetConnectionString(keyString);
 
 builder.Services.AddControllers();
 
-// Obtén más información sobre cómo configurar Swagger/OpenAPI en https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TetePizzaAppContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString)
+         .LogTo(Console.WriteLine, LogLevel.Information)
+    );
 
 //Pedidos
 builder.Services.AddScoped<PedidosService>();
